@@ -1,0 +1,25 @@
+<div class="container">
+  <header class="d-flex justify-content-center py-3">
+    <ul class="nav nav-pills justify-content-between w-100">
+      <li class="nav-item">
+        <button (click)="onHomeClicked()" class="btn btn-outline-info">
+          Home
+        </button>
+      </li>
+
+      <li class="nav-item">
+        <button
+          (click)="onCartClicked()"
+          class="btn btn-outline-info position-relative"
+        >
+          <i class="fa-solid fa-cart-shopping fa-xl"></i>
+          <span
+            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+            >{{ this.totalItems }}
+            <span class="visually-hidden">unread messages</span></span
+          >
+        </button>
+      </li>
+    </ul>
+  </header>
+</div>

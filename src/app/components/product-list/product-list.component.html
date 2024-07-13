@@ -1,0 +1,15 @@
+<div
+  class="container d-flex flex-wrap justify-content-center ms-auto me-auto mb-3 gap-3"
+>
+  @for ( product of products; track product.id) {
+  <app-product-card
+    [product]="product"
+    (addToCartClicked)="onAddToCart($event)"
+    (removeFromCartClicked)="onRemoveFromCart($event)"
+    (quantityChanged)="onQuantityChange($event)"
+    (cardClicked)="onCardClicked($event)"
+  >
+    ></app-product-card
+  >
+  }
+</div>

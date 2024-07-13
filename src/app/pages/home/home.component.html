@@ -1,0 +1,31 @@
+<div class="d-flex flex-column">
+  <div
+    class="d-flex flex-row justify-content-center align align-items-end mb-3"
+  >
+    <input
+      type="text"
+      class="form-control w-50"
+      placeholder="Search products"
+      aria-label="Search products"
+      [formControl]="searchControl"
+    />
+  </div>
+  @if (!products.length) {
+  <div class="d-flex flex-row justify-content-center align align-items-end">
+    <p>No products found.</p>
+  </div>
+  }
+  <app-product-list
+    [products]="products"
+    (addToCartClicked)="onAddToCart($event)"
+    (removeFromCartClicked)="onRemoveFromCart($event)"
+    (quantityChanged)="onQuantityChange($event)"
+    (cardClicked)="onCardClicked($event)"
+  ></app-product-list>
+  <app-paginator
+    [page]="page"
+    [pageSize]="pageSize"
+    class="d-flex flex-column align-items-center"
+  >
+  </app-paginator>
+</div>

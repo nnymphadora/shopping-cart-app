@@ -1,27 +1,55 @@
 # ShoppingCartApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.0.
+This Angular app allows you to manage a shopping cart with products fetched from an external API. The application includes product listing, filtering, pagination, product details view in a modal, cart management, checkout process, and a success page.
 
-## Development server
+# Features
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+1. **Product List**
 
-## Code scaffolding
+   - Fetches initial products from [dummyjson.com/products](https://dummyjson.com/products).
+   - Displays basic product info
+   - Allows filtering by product name
+   - Implements pagination with selectable number of results per page (5, 10, 20, 50)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+2. **Product Single View**
 
-## Build
+   - Displays detailed information about a selected product in a modal
+   - Fetches product details from [dummyjson.com/products/{id}](https://dummyjson.com/products/{id}).
+  
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+3. **Cart**
 
-## Running unit tests
+   - Icon button with a badge showing the total number of products in the cart
+   - Cart view in a modal, allowing users to adjust quantities and delete items
+   - Shows total price, clear cart button and a checkout button
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+4. **Checkout**
 
-## Running end-to-end tests
+   - Shows the cart component and a reactive form with fields for name, address, email, and telephone number
+   - Validates form fields and shows error messages
+   - Users can edit cart item quantites or clear cart
+   - Submits the form data to a mock API at [dummyjson.com/http/200](https://dummyjson.com/http/200).
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+5. **Success Page**
+   - Displays checkout success information.
 
-## Further help
+# Installation
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+To install and run this project locally, follow these steps:
+
+- Clone this repository to your local machine.
+- Navigate to the project directory.
+- Run npm install to install the dependencies.
+- Run npm start to start the development server.
+- Open your browser and visit http://localhost:4200 to view the app.
+
+# Dependencies
+
+- Angular: ^17.2.0
+- @ng-bootstrap/ng-bootstrap: ^16.0.0
+- bootstrap: ^5.3.3
+- RxJS: ~7.8.0
+- Zone.js: ~0.14.3
+
+
+# shopping-cart-app

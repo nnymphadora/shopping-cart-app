@@ -1,0 +1,19 @@
+<ngb-pagination
+  [(page)]="page"
+  [pageSize]="pageSize"
+  (pageChange)="changePage($event)"
+  [collectionSize]="total"
+  [rotate]="true"
+  [maxSize]="5"
+/>
+<select
+  #size
+  (change)="changePageSize(size.value)"
+  class="form-select w-auto"
+  aria-label="Default select example"
+>
+  <option selected value="5">5</option>
+  <option value="10">10</option>
+  <option value="20">20</option>
+  <option value="50">50</option>
+</select>

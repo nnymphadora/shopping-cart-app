@@ -1,0 +1,104 @@
+<div class="row w-100 d-flex flex-row justify-content-center">
+  <div class="row d-flex flex-row w-75 mt-3 mb-3">
+    <div class="row"><h3>Please fill out your info and review cart:</h3></div>
+
+    <div class="col col-6 shadow p-3 rounded">
+      <app-cart></app-cart>
+    </div>
+    <div class="col col-5 ms-3">
+      <form [formGroup]="checkoutForm">
+        <div class="mb-3">
+          <label for="Name" class="form-label">Name</label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="name"
+            placeholder="First and Last name"
+            [class.is-invalid]="name.invalid && (name.dirty || name.touched)"
+          />
+
+          @if (name.invalid && (name.dirty || name.touched)) {
+          <div class="invalid-feedback">
+            @if (name.errors?.['required']) {
+            <div>Name is required.</div>
+            } @if (name.errors?.['pattern']) {
+            <div>Invalid name format.</div>
+            }
+          </div>
+          }
+        </div>
+        <div class="mb-3">
+          <label for="adress" class="form-label">Adress</label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="adress"
+            placeholder="Street, number and city"
+            [class.is-invalid]="
+              adress.invalid && (adress.dirty || adress.touched)
+            "
+          />
+          @if (adress.invalid && (adress.dirty || adress.touched)) {
+          <div class="invalid-feedback">
+            @if (adress.errors?.['required']) {
+            <div>Adress is required.</div>
+            } @if (adress.errors?.['pattern']) {
+            <div>Invalid adress format.</div>
+            }
+          </div>
+          }
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            formControlName="email"
+            placeholder="youremail@email.com"
+            [class.is-invalid]="email.invalid && (email.dirty || email.touched)"
+          />
+
+          @if (email.invalid && (email.dirty || email.touched)) {
+          <div class="invalid-feedback">
+            @if (email.errors?.['required']) {
+            <div>Email is required.</div>
+            } @if (email.errors?.['email']) {
+            <div>Invalid email format.</div>
+            }
+          </div>
+          }
+        </div>
+        <div class="mb-3">
+          <label for="phone" class="form-label">Phone</label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="phone"
+            placeholder="+38269000000"
+            [class.is-invalid]="phone.invalid && (phone.dirty || phone.touched)"
+          />
+          @if (phone.invalid && (phone.dirty || phone.touched)) {
+          <div class="invalid-feedback">
+            @if (phone.errors?.['required']) {
+            <div>Phone is required.</div>
+            } @if (phone.errors?.['pattern']) {
+            <div>Invalid phone format.</div>
+            }
+          </div>
+          }
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="row d-flex justify-content-center">
+    <div class="row d-flex justify-content-center w-50">
+      <button
+        (click)="onSubmit()"
+        class="btn btn-success w-25"
+        [disabled]="checkoutForm.invalid || cartEmpty"
+      >
+        Submit
+      </button>
+    </div>
+  </div>
+</div>

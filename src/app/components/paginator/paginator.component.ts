@@ -20,11 +20,7 @@ export class PaginatorComponent implements OnInit {
   }
 
   changePageSize(pageSize: string) {
-    this.productService.filters.next({
-      ...this.productService.filters.value,
-      page: 0,
-      pageSize: Number(pageSize),
-    });
+    this.productService.changePageSize(pageSize);
   }
 
   constructor(public productService: ProductService) {}

@@ -15,11 +15,12 @@ export class ProductService {
   filters = new BehaviorSubject<ProductFilter>({
     page: 0,
     pageSize: 5,
+    productName: null,
   });
 
-  get searchResults$(): Observable<any[]> {
-    return this.searchResultsSubject.asObservable();
-  }
+  // get searchResults$(): Observable<any[]> {
+  //   return this.searchResultsSubject.asObservable();
+  // }
 
   getProducts(filters: ProductFilter): Observable<Product[]> {
     let params = new HttpParams();
@@ -77,12 +78,23 @@ export class ProductService {
     });
   }
 
-  searchQueryChanged(searchQuery: string) {
+  changePageSize(pageSize: string): void {
+    this.filters.next({
+      ...this.filters.value,
+      pageSize: Number(pageSize),
+    });
+  }
+
+  searchQueryChanged(searchQuery: string): void {
     this.filters.next({
       page: 0,
       pageSize: this.filters.value.pageSize,
       productName: searchQuery,
     });
+  }
+
+  resetFilters(): void {
+    this.filters.next({ pageSize: 5, page: 0, productName: null });
   }
 
   mapDetailedProduct(response: any): DetailedProduct {

@@ -18,24 +18,14 @@ export class HomeComponent implements OnInit, OnDestroy {
   products: Product[] = [];
   selectedProduct: DetailedProduct;
   searchControl = new FormControl();
-  page: number;
-  pageSize: number;
+  page: number = 1;
+  pageSize: number = 5;
   destroyed$ = new Subject<boolean>();
 
   ngOnInit(): void {
-    this.productService.filters.next({
-      pageSize: 5,
-      page: 0,
-      productName: null,
-    });
-
     this.productService.filters
       .pipe(
         takeUntil(this.destroyed$),
-        tap((filters: ProductFilter) => {
-          this.page = filters.page;
-          this.pageSize = filters.pageSize;
-        }),
         switchMap((filters: ProductFilter) => {
           this.loadingService.setLoader(true);
           return filters.productName

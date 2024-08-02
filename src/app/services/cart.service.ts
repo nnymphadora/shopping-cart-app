@@ -73,14 +73,7 @@ export class CartService {
       (item) => item.product.id !== productId
     );
 
-    this.cartSubject.next({
-      ...this.cartSubject.value,
-      items: filteredItems,
-    });
-
-    const items = this.cartSubject.value.items;
-
-    this.updateCartSubject(items);
+    this.updateCartSubject(filteredItems);
   }
 
   onQuantityChanged(product: Product, quantity: number) {

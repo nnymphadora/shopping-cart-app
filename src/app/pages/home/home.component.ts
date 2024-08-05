@@ -5,7 +5,7 @@ import { DetailedProduct } from '../../models/DetailesProduct';
 import { ModalService } from '../../services/modal.service';
 import { CartItem } from '../../models/Cart';
 import { FormControl } from '@angular/forms';
-import { debounceTime, Subject, switchMap, takeUntil, tap } from 'rxjs';
+import { debounceTime, Subject, switchMap, takeUntil } from 'rxjs';
 import { LoadingService } from '../../services/loading-service.service';
 import { Product, ProductFilter } from '../../models/Product';
 

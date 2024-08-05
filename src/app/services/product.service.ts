@@ -9,7 +9,6 @@ import { DetailedProduct } from '../models/DetailesProduct';
 })
 export class ProductService {
   private apiUrl = 'https://dummyjson.com/products';
-  private searchResultsSubject = new BehaviorSubject<any[]>([]);
 
   total = new BehaviorSubject<number>(0);
   filters = new BehaviorSubject<ProductFilter>({
@@ -17,10 +16,6 @@ export class ProductService {
     pageSize: 5,
     productName: null,
   });
-
-  // get searchResults$(): Observable<any[]> {
-  //   return this.searchResultsSubject.asObservable();
-  // }
 
   getProducts(filters: ProductFilter): Observable<Product[]> {
     let params = new HttpParams();
